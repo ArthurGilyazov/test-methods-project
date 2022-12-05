@@ -1,13 +1,13 @@
 package org.nsu.fit.tm_backend.exception;
 
+import lombok.extern.slf4j.Slf4j;
+import org.nsu.fit.tm_backend.exception.data.ServerExceptionResponse;
+
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.ext.ExceptionMapper;
-import lombok.extern.slf4j.Slf4j;
-import lombok.var;
-import org.nsu.fit.tm_backend.exception.data.ServerExceptionResponse;
 
 @Slf4j
 public class ServerExceptionMapper implements ExceptionMapper<Throwable> {

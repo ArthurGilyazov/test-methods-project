@@ -1,18 +1,6 @@
 package org.nsu.fit.tm_backend.repository.impl;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-import java.util.UUID;
-import java.util.stream.Collectors;
-import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
-import lombok.var;
 import org.nsu.fit.tm_backend.repository.Repository;
 import org.nsu.fit.tm_backend.repository.data.CustomerPojo;
 import org.nsu.fit.tm_backend.repository.data.PlanPojo;
@@ -20,6 +8,10 @@ import org.nsu.fit.tm_backend.repository.data.SubscriptionPojo;
 import org.nsu.fit.tm_backend.service.data.AccountTokenBO;
 import org.nsu.fit.tm_backend.service.impl.auth.exception.AccessDeniedException;
 import org.nsu.fit.tm_backend.shared.JsonMapper;
+
+import javax.inject.Singleton;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Singleton
 @Slf4j

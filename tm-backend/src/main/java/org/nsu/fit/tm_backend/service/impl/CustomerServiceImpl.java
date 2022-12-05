@@ -1,11 +1,6 @@
 package org.nsu.fit.tm_backend.service.impl;
 
-import java.util.Set;
-import java.util.UUID;
-import javax.inject.Inject;
-
 import lombok.extern.slf4j.Slf4j;
-import lombok.var;
 import org.jvnet.hk2.annotations.Service;
 import org.nsu.fit.tm_backend.repository.Repository;
 import org.nsu.fit.tm_backend.repository.data.ContactPojo;
@@ -13,6 +8,10 @@ import org.nsu.fit.tm_backend.repository.data.CustomerPojo;
 import org.nsu.fit.tm_backend.service.CustomerService;
 import org.nsu.fit.tm_backend.service.impl.auth.data.AuthenticatedUserDetails;
 import org.nsu.fit.tm_backend.shared.Globals;
+
+import javax.inject.Inject;
+import java.util.Set;
+import java.util.UUID;
 
 @Service
 @Slf4j

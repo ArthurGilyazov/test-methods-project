@@ -1,15 +1,15 @@
 package org.nsu.fit.tm_backend.service.impl;
 
-import java.util.HashSet;
-import java.util.UUID;
-import javax.inject.Inject;
-import lombok.var;
 import org.jvnet.hk2.annotations.Service;
 import org.nsu.fit.tm_backend.service.CustomerService;
 import org.nsu.fit.tm_backend.service.StatisticService;
 import org.nsu.fit.tm_backend.service.SubscriptionService;
 import org.nsu.fit.tm_backend.service.data.StatisticBO;
 import org.nsu.fit.tm_backend.service.data.StatisticPerCustomerBO;
+
+import javax.inject.Inject;
+import java.util.HashSet;
+import java.util.UUID;
 
 @Service
 public class StatisticServiceImpl implements StatisticService {
