@@ -3,6 +3,7 @@ package org.nsu.fit.tm_backend.service.impl;
 import java.util.Set;
 import java.util.UUID;
 import javax.inject.Inject;
+
 import lombok.extern.slf4j.Slf4j;
 import lombok.var;
 import org.jvnet.hk2.annotations.Service;
@@ -48,6 +49,18 @@ public class CustomerServiceImpl implements CustomerService {
         // Лабораторная 2: добавить код который бы проверял, что нет customer'а c таким же login (email'ом).
         // Попробовать добавить другие ограничения, посмотреть как быстро растет кодовая база тестов.
 
+        if (lookupCustomer(customer.login) != null) {
+            throw new IllegalArgumentException("User with provided login already exists.");
+        }
+
+        if (customer.firstName.length() < 2 || customer.firstName.length() > 12) {
+            throw new IllegalArgumentException("First Name's length should be more or equal 2 symbols and less or equal 12 symbols.");
+        }
+
+        if (!customer.firstName.matches("[A-Z][a-z]+")) {
+            throw new IllegalArgumentException("First name format is invalid.");
+        }
+
         return repository.createCustomer(customer);
     }
 
@@ -68,9 +81,10 @@ public class CustomerServiceImpl implements CustomerService {
 
     public CustomerPojo lookupCustomer(UUID customerId) {
         return repository.getCustomers().stream()
-            .filter(x -> x.id.equals(customerId))
-            .findFirst()
-            .orElse(null);}
+                .filter(x -> x.id.equals(customerId))
+                .findFirst()
+                .orElse(null);
+    }
 
     public CustomerPojo lookupCustomer(String login) {
         return repository.getCustomers().stream()
@@ -91,7 +105,15 @@ public class CustomerServiceImpl implements CustomerService {
         // Лабораторная 2: обратите внимание, что вернули данных больше чем надо...
         // т.е. getCustomerByLogin честно возвратит все что есть в базе данных по этому customer'у.
         // необходимо написать такой unit тест, который бы отлавливал данное поведение.
-        return repository.getCustomerByLogin(authenticatedUserDetails.getName());
+
+        CustomerPojo customer = repository.getCustomerByLogin(authenticatedUserDetails.getName());
+        if (customer == null) {
+            return null;
+        }
+
+        contactPojo.login = customer.login;
+
+        return contactPojo;
     }
 
     public void deleteCustomer(UUID id) {
@@ -102,7 +124,15 @@ public class CustomerServiceImpl implements CustomerService {
      * Метод добавляет к текущему балансу переданное значение, которое должно быть строго больше нуля.
      */
     public CustomerPojo topUpBalance(UUID customerId, Integer money) {
+        if (money <= 0) {
+            throw new IllegalArgumentException("Money amount must be strictly positive.");
+        }
+
         var customer = getCustomer(customerId);
+
+        if (customer == null) {
+            return null;
+        }
 
         customer.balance += money;
 
