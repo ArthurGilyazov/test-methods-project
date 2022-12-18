@@ -6,7 +6,6 @@ import java.util.Set;
 import java.util.UUID;
 import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
-import lombok.var;
 import org.jvnet.hk2.annotations.Service;
 import org.nsu.fit.tm_backend.exception.AuthenticationException;
 import org.nsu.fit.tm_backend.repository.Repository;
