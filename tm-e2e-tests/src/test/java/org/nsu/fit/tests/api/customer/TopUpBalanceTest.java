@@ -54,21 +54,6 @@ public class TopUpBalanceTest {
         assertEquals(pojo.balance, customerPojo.balance);
     }
 
-    @Test(description = "To Up balance", dependsOnMethods = "createCustomerTest")
-    @Severity(SeverityLevel.BLOCKER)
-    @Feature("Top Up balance feature")
-    public void toUpBalanceTest() {
-        TopUpBalanceRequest topUpBalanceRequest = new TopUpBalanceRequest();
-        topUpBalanceRequest.money = 42;
-
-        AccountTokenPojo customerToken = restClient.authenticate(customerPojo.login, customerPojo.pass);
-
-        restClient.topUpBalance(customerToken, topUpBalanceRequest);
-
-        CustomerPojo check = restClient.meCustomer(customerToken);
-        assertEquals(42, check.balance);
-    }
-
     @AfterClass
     public void afterClass() {
         restClient.deleteCustomer(customerPojo, adminToken);

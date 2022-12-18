@@ -42,19 +42,6 @@ public class CustomerTest {
         customerToken = restClient.authenticate(customerPojo.login, customerPojo.pass);
     }
 
-    @Test(description = "Me as Customer", dependsOnMethods = "authAsCustomerTest")
-    @Severity(SeverityLevel.BLOCKER)
-    @Feature("Authentication as customer feature")
-    public void getMeAsCustomer() {
-        CustomerPojo result = restClient.meCustomer(customerToken);
-        assertNotNull(result);
-        assertEquals(customerPojo.firstName, result.firstName);
-        assertEquals(customerPojo.lastName, result.lastName);
-        assertEquals(customerPojo.login, result.login);
-        assertEquals(customerPojo.pass, result.pass);
-        assertEquals(customerPojo.balance, result.balance);
-    }
-
     @AfterClass
     public void afterClass() {
         restClient.deleteCustomer(customerPojo, adminToken);

@@ -11,12 +11,12 @@
         </classes>
     </test>
 
-<!--    <test name="AuthCustomTest">-->
-<!--        <classes>-->
-<!--            <class name="org.nsu.fit.tests.api.auth.CustomerTest" />-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--    -->
+    <test name="AuthCustomTest">
+        <classes>
+            <class name="org.nsu.fit.tests.api.auth.CustomerTest" />
+        </classes>
+    </test>
+
     <test name="CustomerCreateTest">
         <classes>
             <class name="org.nsu.fit.tests.api.customer.CreateTest" />
@@ -32,11 +32,11 @@
             <class name="org.nsu.fit.tests.api.customer.GetTest" />
         </classes>
     </test>
-<!--    <test name="CustomerTopUpBalanceTest">-->
-<!--        <classes>-->
-<!--            <class name="org.nsu.fit.tests.api.customer.TopUpBalanceTest" />-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="CustomerTopUpBalanceTest">
+        <classes>
+            <class name="org.nsu.fit.tests.api.customer.TopUpBalanceTest" />
+        </classes>
+    </test>
     <test name="PlanCreateTest">
         <classes>
             <class name="org.nsu.fit.tests.api.plan.CreateTest" />
