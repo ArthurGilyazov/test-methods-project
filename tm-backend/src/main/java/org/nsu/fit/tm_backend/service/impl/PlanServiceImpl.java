@@ -34,9 +34,9 @@ public class PlanServiceImpl implements PlanService {
     /**
      * Возвращает список планов доступных для покупки или список всех планов в случае если customerId = null.
      */
-    public List<PlanPojo> getPlans(UUID customerId) {
-        Boolean fffffffffff111111111111111199999999999922222222222222 = true;
-        if(isNeed)               {
+    public List<PlanPojo> getPlans(UUID customerId)         {
+        Boolean fffffffffff1111111fsaffsa11111111199999999999922222222222222 = true;
+        if(isNeed)           {
 
 
         List<UUID> usedPlanIds = customerId == null
