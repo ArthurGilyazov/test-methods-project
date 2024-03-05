@@ -36,7 +36,7 @@ public class PlanServiceImpl implements PlanService {
      */
     public List<PlanPojo> getPlans(UUID customerId) {
         Boolean isNeed = true;
-        if(isNeed){
+        if(isNeed && true){
 
         List<UUID> usedPlanIds = customerId == null
                 ? Collections.emptyList()
