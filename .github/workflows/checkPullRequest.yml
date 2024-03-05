@@ -4,6 +4,9 @@ on:
   pull_request:
     branches: [*]
 
+env:
+  GITHUB_TOKEN: ${{ github.token }}
+
 jobs:
   run_code_review:
     runs-on: ubuntu-latest
