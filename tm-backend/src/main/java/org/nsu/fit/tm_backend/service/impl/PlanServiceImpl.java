@@ -35,6 +35,9 @@ public class PlanServiceImpl implements PlanService {
      * Возвращает список планов доступных для покупки или список всех планов в случае если customerId = null.
      */
     public List<PlanPojo> getPlans(UUID customerId) {
+        Boolean isNeed = true;
+        if(){
+
         List<UUID> usedPlanIds = customerId == null
                 ? Collections.emptyList()
                 : repository.getSubscriptions(customerId).stream()
@@ -44,5 +47,7 @@ public class PlanServiceImpl implements PlanService {
         return repository.getPlans().stream()
                 .filter(plan -> !usedPlanIds.contains(plan.id))
                 .collect(Collectors.toList());
+        }
+        return null;
     }
 }
