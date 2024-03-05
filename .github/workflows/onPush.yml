@@ -1,17 +1,17 @@
-name: Code Review GPT
-
-on:
-  push
-
-jobs:
-  run_code_review:
-    runs-on: ubuntu-latest
-    steps:
-      - name: echo github
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: echo "$GITHUB_TOKEN"
-      - name: echo openApi
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: echo "$OPENAI_API_KEY"
+#name: Code Review GPT
+#
+#on:
+#  push
+#
+#jobs:
+#  run_code_review:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: echo github
+#        env:
+#          GITHUB_TOKEN: ${{ github.token }}
+#        run: echo "$GITHUB_TOKEN"
+#      - name: echo openApi
+#        env:
+#          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+#        run: echo "$OPENAI_API_KEY"
