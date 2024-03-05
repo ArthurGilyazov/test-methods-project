@@ -3,17 +3,11 @@ name: Code Review GPT
 on:
   push
 
-env:
-  GITHUB_TOKEN: ${{ github.token }}
-
 jobs:
   run_code_review:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: echo github.token
-        script:
-          - echo ${{ github.token }}
+      - name: echo file
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: echo "$GITHUB_TOKEN"

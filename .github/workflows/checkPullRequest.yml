@@ -1,8 +1,7 @@
 name: Code Review GPT
 
 on:
-  pull_request:
-    branches: [*]
+  pull_request
 
 env:
   GITHUB_TOKEN: ${{ github.token }}
