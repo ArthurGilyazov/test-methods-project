@@ -1,8 +1,7 @@
 name: Code Review GPT
 
 on:
-  push:
-    branches: [*]
+  push
 
 env:
   GITHUB_TOKEN: ${{ github.token }}
