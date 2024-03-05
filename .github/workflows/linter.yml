@@ -1,7 +1,8 @@
 name: Lint
 
 on:  # yamllint disable-line rule:truthy
-  push
+  pull_request:
+    types: [opened, reopened, synchronize]
 
 jobs:
   build:
